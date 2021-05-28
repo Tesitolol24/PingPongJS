@@ -12,6 +12,7 @@
         get elements(){
             var elements = this.bars;
             elements.push(this.ball);
+            return elements
         }
     }
 })();
@@ -23,7 +24,7 @@
         this.width = width;
         this.height = height;
         this.board = board;
-        this.board.bars.push(this);
+        this.board.bar.push(this);
         this.kind = "rectangle";
 
         self.Bar.prototype = {
@@ -49,7 +50,7 @@
     self.BoardView.prototype = {
         draw: function(){ 
             for (var i = this.board.elements.lenght -1; i >= 0; i--) {
-                var el = this.board.elements[index];
+                var el = this.board.elements[i];
                 draw(this.ctx,el);
             };
         }
@@ -71,6 +72,7 @@ window.addEventListener("load",main);
 function main(){
     var board = new Board(800,400);
     var bar = new Bar(20,100,40,100,board);
+    var bar = new Bar(700,100,40,100,board);
     var canvas = document.getElementById('canvas');
     var board_view = new BoardView(canvas,board);  
     board_view.draw();
