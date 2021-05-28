@@ -24,7 +24,7 @@
         this.width = width;
         this.height = height;
         this.board = board;
-        this.board.bar.push(this);
+        this.board.bars.push(this);
         this.kind = "rectangle";
 
         self.Bar.prototype = {
